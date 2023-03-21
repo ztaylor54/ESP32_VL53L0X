@@ -209,6 +209,10 @@ public:
     ESP_ERROR_CHECK(i2c_param_config(i2c_port, &conf));
     ESP_ERROR_CHECK(i2c_driver_install(i2c_port, conf.mode, 0, 0, 0));
   }
+  
+  uint32_t getTimingBudget() {
+    return this->TimingBudgetMicroSeconds;
+  }
 
   bool setTimingBudget(uint32_t TimingBudgetMicroSeconds) {
     VL53L0X_Error status = VL53L0X_SetMeasurementTimingBudgetMicroSeconds(
